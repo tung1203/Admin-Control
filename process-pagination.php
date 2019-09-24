@@ -38,18 +38,11 @@ for ($i = 1; $i <= $total_page; $i++) {
 }
 
 
-if ($total_page == 1 || ($_GET['page'] == $total_page)) {
-
-} else {
+if(empty($_GET['page']) || ($_GET['page'] < $total_page && $total_page > 1 )){
     $nextPage = $page + 1;
     echo '<li>
-            <a href="index.php?page=' . $nextPage . '" class="next">
-                <i class="fa fa-angle-right"></i>
-            </a>
+            <a href = "index.php?page=' . $nextPage . '" class="next" >
+                <i class="fa fa-angle-right" ></i >
+            </a >
        </li>';
 }
-//echo '<li>
-//            <a href="index.php?page=' . $nextPage . '" class="next">
-//                <i class="fa fa-angle-right"></i>
-//            </a>
-//       </li>';
