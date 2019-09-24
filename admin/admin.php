@@ -1,28 +1,24 @@
+<?php include("header.php") ?>
 <?php include("filter.php") ?>
-<?php include("../header.php") ?>
-
 <?php
 if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['adduser'])) {
-
     include("process-adduser.php");
-    
-}if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['edit'])) {
-
+}
+if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['edit'])) {
     include("process-edit.php");
 }
 ?>
     <h1 class="text-center">Welcome <?php echo $_SESSION['user']['firstname'] ?></h1>
     <p class="col-md-12 error"><?php if (!empty($errors)) foreach ($errors as $v) echo $v ?></p>
     <h3 class="text-center"><a href="../logout.php">Logout</a></h3>
-
     <div class="container">
         <div class="row">
-            <div class="col-2">
+            <div class="col-4">
                 <a href="" class="btn btn-success mb-3" id="addUserBtn">Add user</a>
+                <a href="uploadProducts/upload.php" class="btn btn-info mb-3" id="addUserBtn">Add product</a>
             </div>
         </div>
     </div>
-
     <div class="container bg-light p-5" id="addUserBox">
         <div class="row justify-content-center">
             <div class="col-md-7">
@@ -90,6 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['adduser'])) {
             </div>
         </div>
     </div>
+
     <div class="container bg-light p-5" id="editBox">
         <div class="row justify-content-center">
             <div class="col-md-7">
@@ -139,47 +136,49 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['adduser'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-<!--                <table class="table">-->
-<!--                    <thead>-->
-<!--                    <tr>-->
-<!--                        <th scope="col">User Id</th>-->
-<!--                        <th scope="col">First name</th>-->
-<!--                        <th scope="col">Last name</th>-->
-<!--                        <th scope="col">Registraion Date</th>-->
-<!--                        <th scope="col"></th>-->
-<!--                        <th scope="col"></th>-->
-<!--                    </tr>-->
-<!--                    </thead>-->
-<!--                    <tbody>-->
-<!--                    --><?php
-//                    require("../mysqli_connect.php");
-//                    $query = "SELECT * FROM users where  user_level != 1 and status = 1";
-//                    $stmt = $conn->stmt_init();
-//                    $stmt->prepare($query);
-//                    $stmt->execute();
-//                    $result = $stmt->get_result();
-//                    if ($result->num_rows > 0) {
-//                        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-////                            $disabled = $row['status'] ? "" : "disabled";
-//                            $registrationDate = date_format(new DateTime($row["registration_date"]), 'Y F d');
-//                            echo '
-//                            <tr>
-//                                <th class="userid" scope="row">' . $row["userid"] . '</th>
-//                                <td class="firstname" >' . $row["first_name"] . '</td>
-//                                <td class="lastname">' . $row["last_name"] . '</td>
-//                                <td>' . $registrationDate . '</td>
-//                                 <td><button class="btn btn-success edit">Edit</button></td>
-//                                 <td><a href="process-delete.php?id=' . $row['userid'] . '" class="btn btn-danger">Delete</a></td>
-//                             </tr>
-//                        ';
-//                        }
-//                    }
-//                    ?>
-<!--                    </tbody>-->
-<!--                </table>-->
-                <?php require("process_admin_view_users.php"); ?>
+
+                <!--                <table class="table">-->
+                <!--                    <thead>-->
+                <!--                    <tr>-->
+                <!--                        <th scope="col">User Id</th>-->
+                <!--                        <th scope="col">First name</th>-->
+                <!--                        <th scope="col">Last name</th>-->
+                <!--                        <th scope="col">Registraion Date</th>-->
+                <!--                        <th scope="col"></th>-->
+                <!--                        <th scope="col"></th>-->
+                <!--                    </tr>-->
+                <!--                    </thead>-->
+                <!--                    <tbody>-->
+                <!--                    --><?php
+                //                    require("../mysqli_connect.php");
+                //                    $query = "SELECT * FROM users where  user_level != 1 and status = 1";
+                //                    $stmt = $conn->stmt_init();
+                //                    $stmt->prepare($query);
+                //                    $stmt->execute();
+                //                    $result = $stmt->get_result();
+                //                    if ($result->num_rows > 0) {
+                //                        while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                ////                            $disabled = $row['status'] ? "" : "disabled";
+                //                            $registrationDate = date_format(new DateTime($row["registration_date"]), 'Y F d');
+                //                            echo '
+                //                            <tr>
+                //                                <th class="userid" scope="row">' . $row["userid"] . '</th>
+                //                                <td class="firstname" >' . $row["first_name"] . '</td>
+                //                                <td class="lastname">' . $row["last_name"] . '</td>
+                //                                <td>' . $registrationDate . '</td>
+                //                                 <td><button class="btn btn-success edit">Edit</button></td>
+                //                                 <td><a href="process-delete.php?id=' . $row['userid'] . '" class="btn btn-danger">Delete</a></td>
+                //                             </tr>
+                //                        ';
+                //                        }
+                //                    }
+                //                    ?>
+                <!--                    </tbody>-->
+                <!--                </table>-->
+                <!--                --><?php //require("process_admin_view_users.php"); ?>
+                <?php require("test.php"); ?>
             </div>
         </div>
     </div>
     <div id="overlay"></div>
-<?php include("../footer.php") ?>
+<?php include("../footer.php"); ?>

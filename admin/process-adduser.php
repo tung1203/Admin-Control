@@ -1,6 +1,4 @@
 <?php
-
-
 if (!empty($_POST['adduser'])) {
     $firstname = test_input($_POST['addFirstname']);
     if (empty($firstname)) {
@@ -67,6 +65,5 @@ function test_input($data)
     $data = htmlspecialchars($data);
     return $data;
 }
-
 ?>
 
